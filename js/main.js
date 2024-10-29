@@ -1,130 +1,94 @@
-document.addEventListener('DOMContentLoaded', function () {
+//les variables Global
+
+const btnAjouter = document.getElementById("btn_ajout");
+const task = document.getElementById("crud-modal");
+const valider_ajoute = document.getElementById("validerAjoute");
+const btnClose = document.getElementById("btn_close");
+const Vide = document.getElementById("vide");
+const confirmer=document.getElementById("confirmation-modal");
+const Btn_suprimmer=document.getElementById("btnSuprimmer");
+
+// Button Ajouter
+btnAjouter.addEventListener('click',function(){
+
+    if(task.classList.contains("hidden"))
+        {
+        task.classList.remove("hidden");
+        task.classList.add("visible");
+    }
+});
+//Buttun Valider l'Ajout et enregistrer
+valider_ajoute.addEventListener('click', function(){
+    const titre = document.getElementById("titre").value;
+    const description = document.getElementById("description").value;
+    const date = document.getElementById("date").value;
+    const priorite = document.getElementById("priorite").value;
+
+    const Tache = {
+        'titre': titre,
+        'desc': description,
+        'date':date,
+        'priorite':priorite
+    };
+
+    localStorage.setItem('tacheeee', JSON.stringify(Tache));
+});
 
 
+btnClose.addEventListener('click',function(){
+if(task.classList.contains("hidden"))
+    {
+    task.classList.remove("hidden");
+    task.classList.add("visible");
+}else{
+    task.classList.add("hidden");
+}
 
-    // const btnAjouter = document.getElementById("btn_ajout");
-    // const btnClose = document.getElementById("btn_close");
-    // const btn_Multi = document.getElementById("btn_ajout_multi");
-    // const btn_Rechercher = document.getElementById("btn_Rechercher");
-    // const task = document.getElementById("crud-modal");
+});
+Btn_suprimmer.addEventListener('click',function(){
+    if(confirmer.classList.contains('hidden')){
+        confirmer.classList.remove('hidden');
+        confirmer.classList.add('visible');
+    }
 
-
-
-    // const date = document.getElementById("date");
-    // const Priorité = document.getElementById("Priorité");
-    // const Valider_ajoute = document.getElementById("valider_ajoute");
-    // // console.log(Valider_ajoute);
-
-    // btnAjouter.addEventListener('click', () => {
-    // })
-
-
-
-
-
-
-
-    // Valider_ajoute.addEventListener('click', function (e) {
-    //     e.preventDefault();
-
-    //     console.log("button clicked")
-    //     const titre = document.getElementById("titre").value;
-    //     const description = document.getElementById("description").value;
-
-    //     console.log(titre)
-    //     console.log(description)
-    //     const Tache1 = {
-    //         'titre': titre,
-    //         'desc': description
-    //     }
-
-    //     // const Tache = {
-    //     //     title: titre.value,
-    //     //     descp: description.value,
-    //     //     date: date.value,
-    //     //     priorty: Priorité.value
-    //     // }
-
-    //     localStorage.setItem('Tache', JSON.stringify(Tache1));
-    //     // localStorage.setItem('Tache2', JSON.stringify(Tache));
-    // });
-
-
-    // btnAjouter.addEventListener('click', function () {
-    //     if (task.classList.contains("hidden")) {
-    //         task.classList.remove("hidden");
-    //         task.classList.add("visible");
-    //     }
-    //     else {
-    //         task.classList.add("hidden");
-    //     }
-    // });
-
-    // btnClose.addEventListener('click',function(){
-    // if(task.classList.contains("hidden"))
-    //     {
-    //     task.classList.remove("hidden");
-    //     task.classList.add("visible");
-    // }else{
-    //     task.classList.add("hidden");
-    // }
-    // });
-
-
-    // btn_Multi.addEventListener('click',function(){
-
-    // console.log(Tache);
-    // });
-
-
-
-    // btn_Rechercher.addEventListener('click',function(){
-    // alert("hi");
-    // });
-
-
-
-
-
-
-
-
-
-
-
-
-        const func1 = function () {
-            const btnAjouter = document.getElementById("btn_ajout");
-            const btnClose = document.getElementById("btn_close");
-            const task = document.getElementById("crud-modal");
-    
-            btnAjouter.addEventListener('click', () => {
-                task.style.display = "block";
-    
-                const valider_ajoute = document.getElementById("validerAjoute");
-                
-                // Ajoutez un événement ici pour capturer les valeurs au moment de la soumission
-                valider_ajoute.addEventListener('click', (e) => {
-                    e.preventDefault();  // Empêche la soumission réelle pour le test
-    
-                    const titre = document.getElementById("titre").value;
-                    const description = document.getElementById("description").value;
-    
-                    const Tache = {
-                        'titre': titre,
-                        'desc': description
-                    };
-    
-                    // Enregistrez les valeurs dans localStorage
-                    localStorage.setItem('tacheeee', JSON.stringify(Tache));
-    
-                    // Fermez la modal
-                    task.style.display = "none";
-                });
-            });
-        }
-        func1();
-
-    
-  
 })
+
+
+
+let newX = 0, newY = 0, startX = 0, startY = 0;
+
+const card = document.getElementById('drag')
+
+card.addEventListener('mousedown', mouseDown)
+
+function mouseDown(e){
+    startX = e.clientX
+    startY = e.clientY
+
+    document.addEventListener('mousemove', mouseMove)
+    document.addEventListener('mouseup', mouseUp)
+}
+
+function mouseMove(e){
+    newX = startX - e.clientX 
+    newY = startY - e.clientY 
+  
+    startX = e.clientX
+    startY = e.clientY
+
+    card.style.top = (card.offsetTop - newY) + 'px'
+    card.style.left = (card.offsetLeft - newX) + 'px'
+}
+
+function mouseUp(e){
+    document.removeEventListener('mousemove', mouseMove)
+}
+
+
+
+
+
+
+
+
+

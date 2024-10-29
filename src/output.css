@@ -691,6 +691,9 @@ video {
 .h-8 {
   height: 2rem;
 }
+.h-64{
+  height: 65rem;
+}
 
 .h-\[calc\(100\%-1rem\)\] {
   height: calc(100% - 1rem);
