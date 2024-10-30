@@ -10,7 +10,7 @@
 <body>
     <!-- le header  -->
     <header class="flex justify-center mt-16">
-        <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"  id="btn_ajout" class="block w-[30%] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+        <button data-modal-target="crud-modal"  data-modal-toggle="crud-modal"  id="btn_ajout" class="block w-[30%] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
             Add task
        </button>
         <form class="max-w-md mx-auto w-[30%]">   
@@ -70,6 +70,12 @@
                                     <option value="P2">P2</option>
                                     <option value="P3">P3</option>
                                 </select>
+                                <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Staus</label>
+                                <select id="statu" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option selected="">ToDo</option>
+                                    <option value="P2">In progress</option>
+                                    <option value="P3">Done</option>
+                                </select>
                             </div>
                            
                         </div>
@@ -82,15 +88,10 @@
             </div>
         </div> 
     </form>
-    <!-- fin du forme d 'ajout  -->
 </div>
+<!-- fin du forme d 'ajout  -->
     
-    <!-- les tables de affiches -->
-
-    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-        Toggle modal
-        </button>
-        
+    <!-- modal confirmatino -->
         <div id="confirmation-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-md max-h-full">
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -113,81 +114,31 @@
                 </div>
             </div>
         </div>
-        
-     <!-- To do -->
+        <!-- Board tasks  -->
     <div class="flex mt-4 gap-5">
-        <!-- <div class="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
-            <div class="bg-slate-500 rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
-                <div class="mb-4 flex justify-between">
-                    <h1 class="text-grey-darkest">Todo List</h1>
-                    <p class="text-grey-darkest">0</p>
-                    
-                </div>
-                <div id="drag" class="flex mt-4 w-[100%] ">
-                    <div class=" flex justify-around w-[100%]">
-                    </p>>Ajouter La planifivation </p>
-                    <input type="button" class="hover:bg-red-800" value="Edit">
-                    <input type="button" id="btnSuprimmer" class="hover:bg-red-800" value="Remove">
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <div class="to-do-list flex flex-col flex-1">
+        <!-- To do -->
+        <div id="todo" class="to-do-list h-fit flex flex-col flex-1">
             <div class="list-title flex justify-between flex-1 border-b-2 pb-3 px-3 border-orange-500">
                 <h1 class="font-semibold">To Do</h1>
                 <h1 class="font-semibold">1</h1>
             </div>
-            <div class="to-do-tasks h-96 bg-gray-300 mt-3 rounded-md overflow-auto">
-                <div class="task-card bg-white h-28 m-2 rounded-md border-l-8 border-red-600">
-
-                </div>
-            </div>
+            
         </div>
-        <!-- in progress  -->
-        <!-- <div class="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
-            <div class="bg-slate-500 rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
-                <div class="mb-4 flex justify-between">
-                    <h1 class="text-grey-darkest">in progress List</h1>
-                    <p class="text-grey-darkest">0</p>
-                    <div class="flex mt-4">
-                    </div>
-                </div>
-             
-
-            </div>
-        </div> -->
-        <div class="to-do-list flex flex-col flex-1">
+    <!-- in progress  -->
+        <div class="to-do-list flex h-fit flex-col flex-1">
             <div class="list-title flex justify-between flex-1 border-b-2 pb-3 px-3 border-orange-500">
-                <h1 class="font-semibold">To Do</h1>
+                <h1 class="font-semibold">In progress</h1>
                 <h1 class="font-semibold">1</h1>
             </div>
-            <div class="to-do-tasks h-96 bg-gray-300 mt-3 rounded-md overflow-auto">
-                <div class="task-card bg-white h-28 m-2 rounded-md border-l-8 border-red-600">
-
-                </div>
-            </div>
+            
         </div>
-        <!-- done  -->
-        <!-- <div class="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
-            <div class="bg-slate-500 rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
-                <div class="mb-4 flex justify-between">
-                    <h1 class="text-grey-darkest">Done List</h1>
-                <p class="text-grey-darkest">0</p>
-                    <div class="flex mt-4">
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <div class="to-do-list flex flex-col flex-1">
+      <!-- done -->
+        <div class="to-do-list flex h-fit flex-col flex-1">
             <div class="list-title flex justify-between flex-1 border-b-2 pb-3 px-3 border-orange-500">
-                <h1 class="font-semibold">To Do</h1>
+                <h1 class="font-semibold">Done</h1>
                 <h1 class="font-semibold">1</h1>
             </div>
-            <div class="to-do-tasks h-96 bg-gray-300 mt-3 rounded-md overflow-auto">
-                <div class="task-card bg-white h-28 m-2 rounded-md border-l-8 border-red-600">
-
-                </div>
-            </div>
+          
         </div>
     </div>
     <!-- fin du tables de affiches -->
@@ -197,9 +148,3 @@
     <script src="../js/main.js"></script>
 </body>
 </html>
-
-<!-- <div class="flex mb-4 items-center">
-    <p class="w-full line-through text-green">Submit Todo App Component to Tailwind Components</p>
-    <button class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-grey border-grey hover:bg-grey">Not Done</button>
-    <button class="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red">Remove</button>
-</div> -->
