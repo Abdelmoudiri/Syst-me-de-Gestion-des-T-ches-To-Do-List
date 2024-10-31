@@ -7,14 +7,17 @@ const confirmer = document.getElementById("confirmation-modal");
 const ToDo = document.getElementById("todo");
 const confirmationClose = document.getElementById("confirmation_close");
 let editBtn ;
+let tableData;
 window.addEventListener("load", (event) => {
-    console.log("Page is fully loaded");
-    let data = localStorage.getItem('task_');
-   
-    data = JSON.parse(data);
-    data.forEach(element => {
-        console.log(element);
-    });
+    console.log("ahlan ");
+    let data = localStorage.getItem('task_')
+
+if (data) {
+    data = JSON.parse(data)
+    console.log(data);
+} else {
+    console.log('vide')
+}
 });
 
 
@@ -103,8 +106,6 @@ validerAjoute.addEventListener('click', function (event) {
         document.getElementById("priorite").value=priorite;
         toggleVisibility(task);
     });
- 
-
     // save in the localStorage
     const taskData = {
         titre: titre,
@@ -112,7 +113,8 @@ validerAjoute.addEventListener('click', function (event) {
         date: date,
         priorite: priorite
     };
-    localStorage.setItem('task_', JSON.stringify(taskData));
+    tableData.push(taskData);
+    localStorage.setItem('task_', JSON.stringify(tableData));
 });
 
 
