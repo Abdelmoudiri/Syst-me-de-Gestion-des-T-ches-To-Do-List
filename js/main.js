@@ -8,18 +8,21 @@ const ToDo = document.getElementById("todo");
 const progress = document.getElementById("progress");
 const done = document.getElementById("done");
 const statu = document.getElementById("statu");
-let taskList;
-
 const confirmationClose = document.getElementById("confirmation_close");
+
+let taskList;
 let editBtn ;
 let tableData;
+
+
+
 window.addEventListener("load", (event) => {
     console.log("ahlan ");
     let data = localStorage.getItem('task_')
 
 if (data) {
     data = JSON.parse(data)
-    console.log(data);
+    console.log(data[2]);
 } else {
     console.log('vide')
 }
@@ -40,7 +43,11 @@ function toggleVisibility(element) {
 // Fonction pour ajouter une tâche
         function ajouterTache(titre, description, date, priorite) {
             taskList = localStorage.getItem('task_');
-            taskList = taskList ? JSON.parse(taskList) : [];
+            if (taskList) {
+                taskList = JSON.parse(taskList);
+            } else {
+                taskList = [];
+            }
             const taskData = {
                 titre: titre,
                 description: description,
@@ -49,23 +56,10 @@ function toggleVisibility(element) {
             };
             taskList.push(taskData);
             localStorage.setItem('task_', JSON.stringify(taskList));
-        }
-
-btnAjouter.addEventListener('click', () => toggleVisibility(task));
-btnClose.addEventListener('click', () => toggleVisibility(task));
-confirmationClose.addEventListener('click', () => toggleVisibility(confirmer));
-
-//AFicher la poppup d'ajoute
-    validerAjoute.addEventListener('click', function (event) {
-        event.preventDefault();
-        const titre = document.getElementById("titre").value;
-        const description = document.getElementById("description").value;
-        const date = document.getElementById("date").value;
-        const priorite = document.getElementById("priorite").value;
-        const statu=document.getElementById("statu").value;
-   
-//CReation la forme du tàche
-        let nouvelle_task = document.createElement("div");  
+}
+//LA CREATION D un task form
+function taskCreation(titre, description, date, priorite,statu){
+    let nouvelle_task = document.createElement("div");  
         nouvelle_task.className = "task-card bg-white h-fit m-2 rounded-md  p-2";
         nouvelle_task.innerHTML = `
             <div>
@@ -111,9 +105,32 @@ confirmationClose.addEventListener('click', () => toggleVisibility(confirmer));
                             done.appendChild(nouvelle_task);  
             }
 
-            editBtn = nouvelle_task.querySelector('.edit-btn');  
+            editBtn = nouvelle_task.querySelector('.edit-btn'); 
+            ajouterTache(titre,description,date,priorite);
+
 
     toggleVisibility(task);
+
+
+}
+//AFicher la poppup d'ajoute
+btnAjouter.addEventListener('click', () => toggleVisibility(task));
+btnClose.addEventListener('click', () => toggleVisibility(task));
+confirmationClose.addEventListener('click', () => toggleVisibility(confirmer));
+
+//AJouter une Task BUTTON
+validerAjoute.addEventListener('click', function (event) {
+
+        event.preventDefault();
+
+        const titre = document.getElementById("titre").value;
+        const description = document.getElementById("description").value;
+        const date = document.getElementById("date").value;
+        const priorite = document.getElementById("priorite").value;
+        const statu=document.getElementById("statu").value;
+
+//CReation la forme du tàche
+taskCreation(titre, description, date, priorite,statu);
 
 //DEclaration des Button
     const removeBtn = nouvelle_task.querySelector('.remove-btn');
@@ -144,7 +161,6 @@ confirmationClose.addEventListener('click', () => toggleVisibility(confirmer));
     });
 
 // save in the localStorage
-    ajouterTache(titre,description,date,priorite);
     viderChamps();
 });
 
