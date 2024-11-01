@@ -73,9 +73,9 @@
                                 </select>
                                 <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Staus</label>
                                 <select id="statu" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                    <option selected="">ToDo</option>
-                                    <option value="P2">In progress</option>
-                                    <option value="P3">Done</option>
+                                    <option selected="ToDo">ToDo</option>
+                                    <option value="progress">In progress</option>
+                                    <option value="Done">Done</option>
                                 </select>
                             </div>
                            
@@ -128,7 +128,7 @@
             
         </div>
     <!-- in progress  -->
-        <div class="to-do-list flex h-fit flex-col flex-1">
+        <div id="progress" class="to-do-list flex h-fit flex-col flex-1">
             <div class="list-title flex justify-between flex-1 border-b-2 pb-3 px-3 border-blue-700">
                 <h1 class="font-semibold">In progress</h1>
                 <h1 class="font-semibold">1</h1>
@@ -136,7 +136,7 @@
             
         </div>
       <!-- done -->
-        <div class="to-do-list flex h-fit flex-col flex-1">
+        <div id="done" class="to-do-list flex h-fit flex-col flex-1">
             <div class="list-title flex justify-between flex-1 border-b-2 pb-3 px-3 border-blue-700">
                 <h1 class="font-semibold">Done</h1>
                 <h1 class="font-semibold">1</h1>
