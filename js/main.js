@@ -76,21 +76,18 @@ function taskCreation(titre, description, date, priorite,statu){
 //AJouter des Tache dans sa place
         if(priorite=="P1")
             {
-                nouvelle_task.classList.add('border-red-800');
-                nouvelle_task.classList.add('border-l-8');
+                nouvelle_task.classList.add('border-red-800','border-l-8');
             }
     
         if(priorite=="P2")
             {
-                nouvelle_task.classList.add('border-orange-400');
-                nouvelle_task.classList.add('border-l-8');
+                nouvelle_task.classList.add('border-orange-400','border-l-8');
             }
             alert(statu);
-    
+
         if(priorite=="P3")
             {
-                nouvelle_task.classList.add('border-green-800');
-                nouvelle_task.classList.add('border-l-8');
+                nouvelle_task.classList.add('border-green-800','border-l-8');
             }
             if(statu=='ToDo')
             {
@@ -151,7 +148,6 @@ taskCreation(titre, description, date, priorite,statu);
     });
 
 //EDiter
-
     editBtn.addEventListener('click',()=>{
         document.getElementById("titre").value=titre;
         document.getElementById("description").value=description;
@@ -163,6 +159,3 @@ taskCreation(titre, description, date, priorite,statu);
 // save in the localStorage
     viderChamps();
 });
-
-
-
