@@ -50,7 +50,7 @@
                             <span class="sr-only">Close modal</span>
                         </button>
                     </div>
-                    <form class="p-4 md:p-5 flex justify-center">
+                    <form class="modal_form p-4 md:p-5 flex justify-center">
                         <div class="grid gap-4 mb-4 grid-cols-2">
                             <div class="col-span-2">
                                 <label for="titre"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titre</label>
@@ -117,13 +117,36 @@
                 </div>
             </div>
         </div>
+
+    <div class="w-[80%] h-fit flex justify-around align-middle mt-[4%] bg-slate-300 rounded-xl ms-auto me-auto ">
+        <!-- tri -->
+       <div class="m-3">
+        <label for="category" class="text-xl text-gray-800">Tri par :</label>
+        <select id="trier_select" class="bg-gray-50 border border-gray-300 text-gray-900   text-xl text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 w-[100%]">
+            <option selected="ToDo">----</option>
+            <option value="prioriter">prioriter</option>
+            <option value="Date">Date</option>
+        </select>
+       </div>
+        <!-- filtrage -->
+       <div class="m-3" >
+        <label for="category" class="text-xl text-gray-800">Filtrer par :</label>
+        <select id="filtrer_select" class="bg-gray-50 border border-gray-300 text-gray-900 text-xl rounded-lg focus:ring-primary-500 focus:border-primary-500  p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 w-[100%]">
+            <option selected="ToDo">----</option>
+            <option value="P1">P1</option>
+            <option value="P2">P2</option>
+            <option value="P3">P3</option>
+        </select>
+       </div>
+    </div>
+
         <!-- Board tasks  -->
-    <div class="flex gap-5 mt-[4%] mx-[4%]">
+    <div class="flex gap-5 ">
         <!-- To do -->
         <div id="todo" class="to-do-list h-fit flex flex-col flex-1">
             <div class="list-title flex justify-between flex-1 border-b-2 pb-3 px-3 border-blue-700">
                 <h1 class="font-semibold">To Do</h1>
-                <h1 class="font-semibold">1</h1>
+                <h1 id="cmpt_todo" class="font-semibold">0</h1>
             </div>
             
         </div>
@@ -131,7 +154,7 @@
         <div id="progress" class="to-do-list flex h-fit flex-col flex-1">
             <div class="list-title flex justify-between flex-1 border-b-2 pb-3 px-3 border-blue-700">
                 <h1 class="font-semibold">In progress</h1>
-                <h1 class="font-semibold">1</h1>
+                <h1 id="cmpt_progress" class="font-semibold">0</h1>
             </div>
             
         </div>
@@ -139,15 +162,16 @@
         <div id="done" class="to-do-list flex h-fit flex-col flex-1">
             <div class="list-title flex justify-between flex-1 border-b-2 pb-3 px-3 border-blue-700">
                 <h1 class="font-semibold">Done</h1>
-                <h1 class="font-semibold">1</h1>
+                <h1 id="cmpt_done" class="font-semibold">0</h1>
             </div>
           
         </div>
     </div>
+
     <!-- fin du tables de affiches -->
 
     
   
-    <script src="../js/main.js"></script>
+    <script src="../js/main.js" type="module"></script>
 </body>
 </html>
