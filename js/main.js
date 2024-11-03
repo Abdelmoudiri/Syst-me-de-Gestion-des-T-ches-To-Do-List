@@ -14,8 +14,19 @@ let todoTab = [], progressTab = [], doneTab = [];
 let taskToEdit = null; 
 
 function toggleVisibility(element) {
-    element.classList.toggle('hidden');
+    if (element.classList.contains('show')) {
+        element.classList.remove('show');
+        element.classList.add('hide');
+        setTimeout(() => {
+            element.classList.remove('hide');
+            element.classList.add('hidden');
+        }, 300);
+    } else {
+        element.classList.remove('hidden');
+        element.classList.add('show');
+    }
 }
+
 
 function taskCreation(titre, description, date, priorite, statu) {
     let nouvelle_task = document.createElement("div");

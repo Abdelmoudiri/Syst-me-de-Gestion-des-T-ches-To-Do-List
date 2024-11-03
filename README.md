@@ -1,87 +1,55 @@
-# Système de Gestion des Tâches — To Do List
-# Contexte du projet
-La start-up TaskFlow a décidé de développer une application de gestion de tâches pour améliorer l'efficacité de son équipe de développement. Cette application permettra aux utilisateurs de créer, suivre et organiser leurs tâches, facilitant ainsi la planification des projets.
+Structure du Projet
+Architecture du Code :
+Séparation des fichiers pour un développement modulable :
+index.html : Structure de la page.
+style.css : Styles CSS pour l'apparence de la page.
+app.js : Script JavaScript pour la logique de l'application.
+Fonctionnalités Clés
+Page d'accueil (HTML/CSS) :
 
-# Objectif
-Développer une application de gestion de tâches responsive permettant d’ajouter, de rechercher, de filtrer et de prioriser les tâches. L'application sera conçue avec une interface fluide et attractive, utilisant HTML, CSS, et JavaScript.
+Utiliser Tailwind CSS pour une mise en page responsive et moderne.
+Présenter une liste de tâches ordonnée par statut.
+Ajout de Tâches (Modal) :
 
-# Technologies utilisées
-HTML5
-CSS3 (avec Tailwind pour le design)
-JavaScript
-Git pour le contrôle de version
-UX/UI design
+Un modal interactif avec des champs pour le titre, la description, le statut, la date d'échéance et la priorité.
+Styles CSS pour indiquer visuellement la priorité (rouge pour P1, orange pour P2, vert pour P3).
+Liste de Tâches :
 
-# Fonctionnalités
+Afficher les tâches avec des badges de priorité et des icônes indiquant l'état.
+Ajout d'une animation CSS lors de l'apparition d'une tâche.
+Changer le Statut d'une Tâche :
 
-Page d'accueil : Présentation de la To Do List avec une interface moderne.
+Un système de modification rapide pour déplacer les tâches entre différents statuts (To Do, Doing, Done).
+Statistiques :
 
-Ajout de tâches : Modal permettant d'ajouter une nouvelle tâche avec des champs pour le titre, la description, le statut, la date d’échéance et la priorité.
+Un widget montrant le nombre total de tâches et leur répartition par statut.
+Suppression et Modification :
 
-Affichage des tâches : Liste organisée montrant le titre, la date d’échéance et la priorité de chaque tâche (P1 en rouge, P2 en orange, P3 en vert).
+Options pour supprimer et modifier une tâche, avec une confirmation de suppression.
+Validation des Formulaires :
 
-Gestion des statuts : Possibilité de changer le statut des tâches (To Do, Doing, Done).
+Vérifications JavaScript pour s'assurer que tous les champs requis sont remplis avant l'ajout d'une tâche.
+Filtrage et Tri :
 
-Statistiques : Visualisation du nombre de tâches différentes.
-
-Suppression de tâches : Fonctionnalité pour supprimer des tâches existantes.
-
-Validation des formulaires : Vérifications d'intégrité pour garantir la qualité des données.
-
-Interactivité : Utilisation de JavaScript pour des animations d'ajout et de suppression.
-
-Accessibilité : Respect des critères d'accessibilité pour tous les utilisateurs.
-
-Déploiement : Application déployée sur GitHub Pages.
-
-# Bonus
-
-Ajout multiple de tâches : Modal pour ajouter plusieurs tâches avec un bouton "+".
-
-Drag and Drop : Changement du statut d'une tâche par glisser-déposer.
-
-LocalStorage : Sauvegarde des modifications pour les rendre persistantes même après actualisation de la page.
-
-Fonctionnalités de tri et de filtrage : Tri des tâches par date d'échéance ou filtrage par priorité.
-
-Recherche de tâches : Barre de recherche pour trouver des tâches par titre ou mot-clé.
-
-# Modalités pédagogiques
-
-Le projet doit être réalisé en 5 jours en autonomie, avec une date limite de soumission le 03/11/2024 à 23h59.
-
-# Modalités d'évaluation
-
-Présentation de 20 minutes :
-
-5 minutes : Démonstration du livrable.
-
-10 minutes : Explication du code.
-
-5 minutes : Évaluation des savoirs (Q/A).
-
-# Livrables
-
-Un lien vers le site web hébergé sur GitHub Pages.
-
-Lien vers le repository GitHub contenant :
-
-Le code source du site en HTML, CSS, et JavaScript.
-
-README.
-
-# Taches Développées
-
-Page d'accueil : Présentation générale et navigation vers les fonctionnalités.
-
-Ajout des tâches : Liste des tâches avec options de filtrage et tri.
-
-Afichage de statistiques : Visualisation des tâches par statut et priorité.
-
-Recherche de taches: recherche de tache par titre.
-
-
-
-# Conclusion
-Ce projet vise à fournir une solution simple mais efficace pour la gestion des tâches, permettant aux utilisateurs de mieux organiser leur travail et de suivre leur progression de manière intuitive et accessible.
-
+Filtres pour trier les tâches par date d'échéance ou par priorité, implémentés avec des fonctions de tri en JavaScript.
+Barre de recherche pour trouver des tâches par titre ou mots-clés.
+Bonus
+Drag and Drop : Utiliser la bibliothèque JavaScript native ou Sortable.js pour implémenter le drag-and-drop.
+LocalStorage : Persistance des données pour permettre la récupération des tâches après un rechargement de la page.
+Accessibilité (WCAG)
+Utiliser des couleurs avec un bon contraste.
+Ajouter des labels clairs aux champs de formulaire.
+Support pour la navigation au clavier.
+Déploiement
+GitHub Pages pour l'hébergement.
+Suivi des versions avec Git.
+Technologies Utilisées
+HTML5 pour la structure.
+CSS3/Tailwind CSS pour le design et la responsivité.
+JavaScript pour la logique et l'interactivité.
+Git/GitHub pour le contrôle de version et l'hébergement.
+Plan de Travail
+Jour 1-2 : Configuration du projet, création de la structure HTML et des styles de base.
+Jour 3 : Implémentation de la logique JavaScript pour ajouter, modifier, supprimer, et trier les tâches.
+Jour 4 : Test et validation, ajout des fonctionnalités de filtrage et de recherche.
+Jour 5 : Finalisation, optimisation de l'accessibilité, déploiement, et documentation.

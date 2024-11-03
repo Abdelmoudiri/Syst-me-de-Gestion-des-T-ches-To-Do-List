@@ -1,3 +1,107 @@
+.task-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .task-card {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 15px;
+  }
+
+  .task-card h2 {
+      font-size: 1.2rem;
+  }
+
+  .task-card p {
+      font-size: 1rem;
+      margin: 5px 0;
+  }
+
+  .task-card .edit-btn, 
+  .task-card .remove-btn {
+      margin-top: 5px;
+      width: 100%;
+  }
+
+  #crud-modal, #confirmation-modal {
+      width: 90%;
+      margin: auto;
+  }
+
+  #btn_ajout {
+      width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-card h2 {
+      font-size: 1rem;
+  }
+
+  .task-card p {
+      font-size: 0.9rem;
+  }
+
+  #crud-modal, #confirmation-modal {
+      padding: 10px;
+  }
+
+  .flex {
+      flex-direction: column; 
+  }
+}
+
+
+.hidden {
+  display: none;
+}
+
+@keyframes slideDownFade {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideUpFade {
+  from {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  to {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+}
+
+#crud-modal {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#crud-modal.show {
+  opacity: 1;
+  transform: translateY(0);
+  animation: slideDownFade 0.7s forwards;
+}
+
+#crud-modal.hide {
+  animation: slideUpFade 0.9s forwards;
+}
+
+
+
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
